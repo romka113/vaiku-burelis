@@ -1,0 +1,110 @@
+<div class="card">
+  <div class="card-header">Registruoti automobilį</div>
+  <div class="card-body">
+    <form (ngSubmit)="summerCamp(f)" #f="ngForm">
+      <div class="mb-3">
+        <label class="form-label">Vaiko vardas</label>
+        <input
+          type="text"
+          class="form-control"
+          ngModel
+          name="name"
+          required
+          minlength="3"
+          maxlength="15"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Vaiko pavarde</label>
+        <input
+          type="text"
+          class="form-control"
+          ngModel
+          name="surname"
+          required
+          minlength="3"
+          maxlength="15"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Vaiko gimimo metai</label>
+        <input
+          type="number"
+          class="form-control"
+          ngModel
+          name="year"
+          required
+          min="1990"
+          max="2022"
+          year
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label me-2">Vaiko lytis</label>
+        <input
+          type="radio"
+          class="form-check-input"
+          value="gender"
+          ngModel
+          name="gender"
+          required
+          id="vyr"
+        />
+        <label for="vyr">Vyras</label>
+
+        <input
+          type="radio"
+          class="form-check-input"
+          value="gender-mot"
+          ngModel
+          name="gender"
+          required
+          id="mot"
+        />
+        <label for="mot">Moteris</label>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">El.pastas</label>
+        <input
+          type="email"
+          class="form-control"
+          ngModel
+          name="email"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Telefono numeris</label>
+        <input
+          type="number"
+          class="form-control"
+          ngModel
+          name="phone"
+          placeholder="+37065312345"
+          minlength="10"
+          maxlength="12"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Klase</label>
+        <input
+          type="number"
+          class="form-control"
+          ngModel
+          name="class"
+          min="5"
+          max="12"
+          required
+          #inputKlass="ngModel"
+        />
+        <span class="help-block" *ngIf="!inputKlass.valid && inputKlass.touched"
+          >Parasyti nuo 5 iki 12 klases</span
+        >
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="!f.valid">
+        Registruoti vaika
+      </button>
+    </form>
+  </div>
+</div>
