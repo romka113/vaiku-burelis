@@ -1,9 +1,9 @@
 <div class="card">
-  <div class="card-header">Uzregistruotu vaiku lentele</div>
-  <div class="card-body">
-    <table class="class">
-      <thead>
-        <tr>
+  <div class="card-header bg-danger">Uzregistruotu vaiku lentele</div>
+  <div class="card-body bg-success">
+    <table class="class col-md-12">
+      <thead class="btn-success">
+        <tr class="bg-danger">
           <th>Vardas</th>
           <th>Pavarde</th>
           <th>Gimimo metai</th>
@@ -11,10 +11,12 @@
           <th>El.pastas</th>
           <th>Telefono numeris</th>
           <th>Klase</th>
+          <th>Veiksmai</th>
+
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of childrenReg">
+        <tr *ngFor="let data of childrenReg" class="bg-warning">
           <td>{{ data.name }}</td>
           <td>{{ data.surname }}</td>
           <td>{{ data.year }}</td>
@@ -22,6 +24,7 @@
           <td>{{ data.email }}</td>
           <td>{{ data.phone }}</td>
           <td>{{ data.klass }}</td>
+          <td><a [routerLink]="['/registrationEdit',data.id]" class="btn btn-info">Redaguoti</a> </td>
         </tr>
       </tbody>
     </table>

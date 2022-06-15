@@ -26,4 +26,20 @@ export class RegistrationService {
         })
       );
   }
+  public getRegistration(id: string) {
+    return this.hhtp
+      .get<Registration>(this.url + 'registrations/' + id + '.json')
+      .pipe(
+        map((response) => {
+          response.id = id;
+          return response;
+        })
+      );
+  }
+  public updateRegistration(registration: Registration) {
+    return this.hhtp.patch(
+      this.url + 'registrations/' + registration.id + '.json',
+      registration
+    );
+  }
 }

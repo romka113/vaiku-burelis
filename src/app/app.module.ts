@@ -9,12 +9,14 @@ import { DirectiveDirective } from './directive.directive';
 import { YearsDirective } from './directive/years.directive';
 import { RegistrationListComponent } from './components/registration-list/registration-list.component';
 import { RouterModule, Routes } from '@angular/router';
+import { RegistrationEditComponent } from './components/registration-edit/registration-edit.component';
 const routes: Routes = [
   {
     path: '',
     component: RegistrationListComponent,
   },
   { path: 'registrationNew', component: ChildrenFormComponent },
+  { path: 'registrationEdit/:id', component: RegistrationEditComponent },
 ];
 
 @NgModule({
@@ -24,6 +26,7 @@ const routes: Routes = [
     DirectiveDirective,
     YearsDirective,
     RegistrationListComponent,
+    RegistrationEditComponent,
   ],
   imports: [
     BrowserModule,

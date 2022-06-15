@@ -1,0 +1,125 @@
+<div class="card" *ngIf="!load">
+  <div class="card-header bg-info">Kraunasi</div>
+</div>
+<div class="card bg-danger" *ngIf="error&&load">
+  <div class="card-header">{{erroCode}}</div>
+</div>
+<div class="card" *ngIf="load&&!error" >
+  <div class="card-header">Redaguojama forma</div>
+  <div class="card-body" >
+    <form  (mouseover)="colorChange()" (ngSubmit)="onUpdate()" #f="ngForm" >
+      <div class="mb-3">
+        <label class="form-label">Vaiko vardas</label>
+        <input
+          type="text"
+          class="form-control"
+          ngModel
+          name="name"
+          required
+          minlength="3"
+          maxlength="15"
+          [(ngModel)]="registration.name"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Vaiko pavarde</label>
+        <input
+          type="text"
+          class="form-control"
+          ngModel
+          name="surname"
+          required
+          minlength="3"
+          maxlength="15"
+          [(ngModel)]="registration.surname"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Vaiko gimimo metai</label>
+        <input
+          type="number"
+          class="form-control"
+          ngModel
+          name="year"
+          required
+          year
+          [(ngModel)]="registration.year"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label me-2">Vaiko lytis</label>
+        <input
+          type="radio"
+          class="form-check-input"
+          value="berniukas"
+          ngModel
+          name="gender"
+          required
+          id="vyr"
+          [(ngModel)]="registration.gender"
+        />
+        <label for="vyr">Vyras</label>
+
+        <input
+          type="radio"
+          class="form-check-input"
+          value="mergaite"
+          ngModel
+          name="gender"
+          required
+          id="mot"
+          [(ngModel)]="registration.gender"
+        />
+        <label for="mot">Moteris</label>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">El.pastas</label>
+        <input
+          type="email"
+          class="form-control"
+          ngModel
+          email
+          name="email"
+          required
+          [(ngModel)]="registration.email"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Telefono numeris</label>
+        <input
+          type="text"
+          class="form-control"
+          ngModel
+          name="phone"
+          placeholder="+37065312345"
+          minlength="10"
+          maxlength="12"
+          required
+          [(ngModel)]="registration.phone"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Klase</label>
+        <input
+          type="number"
+          class="form-control"
+          ngModel
+          name="klass"
+          min="5"
+          max="12"
+          required
+          [(ngModel)]="registration.klass"
+          #inputKlass="ngModel"
+        />
+        <span class="help-block" *ngIf="!inputKlass.valid && inputKlass.touched"
+        >Parasyti nuo 5 iki 12 klases</span
+        >
+      </div>
+      <button type="submit" class="btn btn-info" [disabled]="!f.valid">
+        Isaugoti pakeitimus
+      </button>
+      <a class="btn-success btn float-end" routerLink="/">Atsaukti</a>
+    </form>
+  </div>
+</div>
+
