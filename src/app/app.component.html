@@ -1,7 +1,11 @@
 <div class="container mt-5">
   <div class="row">
+    <div class="col-md-12 mb-5">
+      <a class="btn btn-success me-3" routerLink="registrationNew">Prideti nauja vaika i vasaros stovykla</a>
+      <a class="btn btn-success" routerLink="">Registracijos sarasas</a>
+    </div>
     <div class="col-md-12">
-      <app-children-form></app-children-form>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

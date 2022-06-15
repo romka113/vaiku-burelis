@@ -19,10 +19,10 @@ import {
 export class YearsDirective implements Validator {
   constructor() {}
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
-    let v: any = new Date(`${control.value}`);
+    let v: Date = new Date(`${control.value}`);
     let time = new Date();
-    console.log(v, time);
-    if (time < v) {
+
+    if (time.getTime() > v.getTime()) {
       return null;
     } else {
       return { error: 'klaida' };
