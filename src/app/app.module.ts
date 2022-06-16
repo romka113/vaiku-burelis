@@ -11,6 +11,7 @@ import { RegistrationListComponent } from './components/registration-list/regist
 import { RouterModule, Routes } from '@angular/router';
 import { RegistrationEditComponent } from './components/registration-edit/registration-edit.component';
 import { AuthComponent } from './components/auth/auth.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'registrationNew', component: ChildrenFormComponent },
   { path: 'registrationEdit/:id', component: RegistrationEditComponent },
   { path: 'register', component: AuthComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
@@ -31,6 +33,7 @@ const routes: Routes = [
     RegistrationListComponent,
     RegistrationEditComponent,
     AuthComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3 col-xs-12 mt-5">
+    <div class="card">
+      <div class="car-header bg-info">Prisijungti</div>
+      <div class="card-body">
+        <form #f="ngForm">
+          <div class="mb-3">
+            <label class="form-label">El. pasto adresas:</label>
+            <input type="text" class="form-control" ngModel name="email" email required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Slaptazodis</label>
+            <input type="password" class="form-control" ngModel name="password" minlength="6" required>
+          </div>
+          <button type="submit" class="btn btn-info">Jungtis</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
