@@ -10,7 +10,8 @@ import { YearsDirective } from './directive/years.directive';
 import { RegistrationListComponent } from './components/registration-list/registration-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { RegistrationEditComponent } from './components/registration-edit/registration-edit.component';
-import { AuthComponent } from './component/auth/auth.component';
+import { AuthComponent } from './components/auth/auth.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -18,6 +19,7 @@ const routes: Routes = [
   },
   { path: 'registrationNew', component: ChildrenFormComponent },
   { path: 'registrationEdit/:id', component: RegistrationEditComponent },
+  { path: 'register', component: AuthComponent },
 ];
 
 @NgModule({
