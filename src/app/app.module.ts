@@ -10,6 +10,7 @@ import { YearsDirective } from './directive/years.directive';
 import { RegistrationListComponent } from './components/registration-list/registration-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { RegistrationEditComponent } from './components/registration-edit/registration-edit.component';
+import { AuthComponent } from './component/auth/auth.component';
 const routes: Routes = [
   {
     path: '',
@@ -27,6 +28,7 @@ const routes: Routes = [
     YearsDirective,
     RegistrationListComponent,
     RegistrationEditComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,

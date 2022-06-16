@@ -25,8 +25,8 @@
           <td>{{ data.phone }}</td>
           <td>{{ data.klass }}</td>
           <td><a [routerLink]="['/registrationEdit',data.id]" class="btn btn-info">Redaguoti</a>
-            <button class="btn btn-danger" (click)="close()">Ištrinti</button></td>
-          <div class="modal" [hidden]="IsmodelShow" tabindex="-1"  style="display: block; background-color: rgba(0,0,0,.5);">
+            <button class="btn btn-danger" (click)="close(data.id)">Ištrinti</button></td>
+          <div class="modal" [hidden]="IsmodelShow" tabindex="-1"  style="display: block; background-color: rgba(0,0,0,.1);">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -38,7 +38,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cancel()">Atšaukti trynimą</button>
-                  <button type="button" class="btn btn-primary" (click)="onDeleteRegistration(data.id)">Ištrinti</button>
+                  <button type="button" class="btn btn-primary" (click)="onDeleteRegistration(person)">Ištrinti</button>
                 </div>
               </div>
             </div>

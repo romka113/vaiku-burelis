@@ -10,6 +10,7 @@ import { RegistrationService } from '../../services/registration.service';
 export class RegistrationListComponent implements OnInit {
   public childrenReg: Registration[] = [];
   public IsmodelShow = true;
+  public person: string | undefined = '';
   constructor(private registrationService: RegistrationService) {}
   private loadRegistrations() {
     this.registrationService.getRegistrations().subscribe((result) => {
@@ -21,7 +22,8 @@ export class RegistrationListComponent implements OnInit {
     this.loadRegistrations();
   }
 
-  public close() {
+  public close(id: string | undefined) {
+    this.person = id;
     this.IsmodelShow = false;
   }
   public cancel() {
