@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 })
 export class AuthComponent implements OnInit {
   constructor(private auth: AuthService, private router: Router) {}
-
+  public password: string = '';
+  public repass: string = '';
   ngOnInit(): void {}
   public onSubmit(form: NgForm) {
     console.log(form.value);
