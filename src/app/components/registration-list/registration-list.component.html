@@ -24,9 +24,30 @@
           <td>{{ data.email }}</td>
           <td>{{ data.phone }}</td>
           <td>{{ data.klass }}</td>
-          <td><a [routerLink]="['/registrationEdit',data.id]" class="btn btn-info">Redaguoti</a> </td>
+          <td><a [routerLink]="['/registrationEdit',data.id]" class="btn btn-info">Redaguoti</a>
+            <button class="btn btn-danger" (click)="close()">Ištrinti</button></td>
+          <div class="modal" [hidden]="IsmodelShow" tabindex="-1"  style="display: block; background-color: rgba(0,0,0,.5);">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Įrašo trynimas</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cancel()"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Ar tikrai norite ištrinti įrašą.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cancel()">Atšaukti trynimą</button>
+                  <button type="button" class="btn btn-primary" (click)="onDeleteRegistration(data.id)">Ištrinti</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
+
+
+

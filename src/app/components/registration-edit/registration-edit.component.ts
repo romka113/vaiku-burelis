@@ -23,6 +23,7 @@ export class RegistrationEditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.maleOrFemale();
     this.id = this.route.snapshot.params['id'];
     this.load = false;
     this.registrationService.getRegistration(this.id).subscribe({
@@ -36,11 +37,16 @@ export class RegistrationEditComponent implements OnInit {
       },
     });
   }
-  colorChange() {
-    setInterval(() => {
-      document.body.style.background =
-        '#' + Math.floor(Math.random() * 16777215).toString(16);
-    }, 2000);
+  // colorChange() {
+  //   document.body.style.background =
+  //     '#' + Math.floor(Math.random() * 16777215).toString(16);
+  // }
+  maleOrFemale() {
+    if (this.registration.gender === 'berniukas') {
+      return '#' + Math.floor(Math.random() * 16777215).toString(16);
+    } else {
+      return '#' + Math.floor(Math.random() * 16777215).toString(16);
+    }
   }
   onUpdate() {
     this.registrationService.updateRegistration(this.registration).subscribe({

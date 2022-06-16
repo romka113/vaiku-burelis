@@ -6,8 +6,8 @@
 </div>
 <div class="card" *ngIf="load&&!error" >
   <div class="card-header">Redaguojama forma</div>
-  <div class="card-body" >
-    <form  (mouseover)="colorChange()" (ngSubmit)="onUpdate()" #f="ngForm" >
+  <div class="card-body" [ngStyle]="{backgroundColor:maleOrFemale()}"  >
+    <form (ngSubmit)="onUpdate()" #f="ngForm" >
       <div class="mb-3">
         <label class="form-label">Vaiko vardas</label>
         <input

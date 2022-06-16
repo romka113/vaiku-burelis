@@ -9,11 +9,30 @@ import { RegistrationService } from '../../services/registration.service';
 })
 export class RegistrationListComponent implements OnInit {
   public childrenReg: Registration[] = [];
+  public IsmodelShow = true;
   constructor(private registrationService: RegistrationService) {}
-
-  ngOnInit(): void {
+  private loadRegistrations() {
     this.registrationService.getRegistrations().subscribe((result) => {
       this.childrenReg = result;
     });
+  }
+
+  ngOnInit(): void {
+    this.loadRegistrations();
+  }
+
+  public close() {
+    this.IsmodelShow = false;
+  }
+  public cancel() {
+    this.IsmodelShow = true;
+  }
+  public onDeleteRegistration(id: string | undefined) {
+    this.cancel();
+    if (id != undefined) {
+      this.registrationService.deleteRegistration(id).subscribe(() => {
+        this.loadRegistrations();
+      });
+    }
   }
 }

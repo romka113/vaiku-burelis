@@ -42,4 +42,7 @@ export class RegistrationService {
       registration
     );
   }
+  public deleteRegistration(id: string) {
+    return this.hhtp.delete(this.url + 'registrations/' + id + '.json');
+  }
 }
