@@ -16,7 +16,8 @@
             <label class="form-label">Pakartoti Slaptazodi</label>
             <input type="password" class="form-control" [(ngModel)]="repass" ngModel name="repassword" minlength="6" required>
           </div>
-          <button type="submit" [disabled]="password!=repass" class="btn btn-info">Registruotis</button>
+          <button type="submit" [disabled]="password!==repass" class="btn btn-info">Registruotis</button>
+          <span *ngIf="repass!==password&&f.touched">Klaida ivedant slaptazodi</span>
         </form>
       </div>
     </div>
