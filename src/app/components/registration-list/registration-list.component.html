@@ -1,6 +1,8 @@
 <div class="card">
   <div class="card-header bg-danger">Uzregistruotu vaiku lentele</div>
   <div class="card-body bg-success">
+    <div *ngIf="user!=null">Jus esate prisijunges kaip:{{user?.email}}</div>
+    <div *ngIf="user==null">Jus nesate prisijunges</div>
     <table class="class col-md-12">
       <thead class="btn-success">
         <tr class="bg-danger">
@@ -26,28 +28,28 @@
           <td>{{ data.klass }}</td>
           <td><a [routerLink]="['/registrationEdit',data.id]" class="btn btn-info">Redaguoti</a>
             <button class="btn btn-danger" (click)="close(data.id)">Ištrinti</button></td>
-          <div class="modal" [hidden]="IsmodelShow" tabindex="-1"  style="display: block; background-color: rgba(0,0,0,.1);">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Įrašo trynimas</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cancel()"></button>
-                </div>
-                <div class="modal-body">
-                  <p>Ar tikrai norite ištrinti įrašą.</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cancel()">Atšaukti trynimą</button>
-                  <button type="button" class="btn btn-primary" (click)="onDeleteRegistration(person)">Ištrinti</button>
-                </div>
-              </div>
-            </div>
-          </div>
+
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-
+<div class="modal" [hidden]="IsmodelShow" tabindex="-1"  style="display: block; background-color: rgba(0,0,0,.1);">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Įrašo trynimas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cancel()"></button>
+      </div>
+      <div class="modal-body">
+        <p>Ar tikrai norite ištrinti įrašą.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cancel()">Atšaukti trynimą</button>
+        <button type="button" class="btn btn-primary" (click)="onDeleteRegistration(person)">Ištrinti</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 

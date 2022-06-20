@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-6 offset-md-3 col-xs-12 mt-5">
     <div class="card">
-      <div class="car-header">Registracija</div>
+      <div class="car-header">{{(isLoginMode)?"Prisijungti prie sistemos ":"Registruotis"}}</div>
       <div class="card-body">
         <form #f="ngForm" (ngSubmit)="onSubmit(f)">
           <div class="mb-3">
@@ -13,11 +13,12 @@
             <input type="password" class="form-control" [(ngModel)]="password"  ngModel  name="password"  minlength="6" required>
           </div>
           <div class="mb-3">
-            <label class="form-label">Pakartoti Slaptazodi</label>
-            <input type="password" class="form-control" [(ngModel)]="repass" ngModel name="repassword" minlength="6" required>
+            <label class="form-label" [hidden]="isLoginMode">Pakartoti Slaptazodi</label>
+            <input type="password" class="form-control" [hidden]="isLoginMode" [(ngModel)]="repass" ngModel name="repassword" minlength="6" required>
           </div>
-          <button type="submit" [disabled]="password!==repass" class="btn btn-info">Registruotis</button>
-          <span *ngIf="repass!==password&&f.touched">Klaida ivedant slaptazodi</span>
+          <button type="submit" [disabled]="password!==repass&&!isLoginMode" class="btn btn-info">{{(isLoginMode)?"Prisijungti":"Registruotis"}}</button>
+          <button type="submit" class="btn btn-info float-end " (click)="isLoginMode=!isLoginMode">{{(!isLoginMode)?"Turite paskyra? Prisjunkite":"Neturite paskyros? Registruotis"}}</button>
+          <span *ngIf="repass!==password&&!isLoginMode">Klaida ivedant slaptazodi</span>
         </form>
       </div>
     </div>
