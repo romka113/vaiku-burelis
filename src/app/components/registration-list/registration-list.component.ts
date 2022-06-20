@@ -27,6 +27,9 @@ export class RegistrationListComponent implements OnInit {
   ngOnInit(): void {
     this.loadRegistrations();
     this.user = this.auth.user;
+    this.auth.userUpdate.subscribe(() => {
+      this.user = this.auth.user;
+    });
   }
 
   public close(id: string | undefined) {

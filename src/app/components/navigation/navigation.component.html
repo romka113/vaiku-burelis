@@ -1,0 +1,7 @@
+<div class="col-md-12 mb-5">
+  <a class="btn btn-success me-3" routerLink="registrationNew">Prideti nauja vaika i vasaros stovykla</a>
+  <a class="btn btn-success me-3" routerLink="">Registracijos sarasas</a>
+  <p *ngIf="user!=null" class="float-end">{{user.email}}</p>
+  <a *ngIf="user==null" class="btn btn-success float-end me-2" routerLink="register" >Prisijungti</a>
+  <button *ngIf="user!=null"  class="btn btn-success float-end me-2" (click)="logOut()">Atsijungti</button>
+</div>

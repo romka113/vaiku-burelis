@@ -12,6 +12,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegistrationEditComponent } from './components/registration-edit/registration-edit.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { LoginComponent } from './components/login/login.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const routes: Routes = [
   {
@@ -34,6 +36,8 @@ const routes: Routes = [
     RegistrationEditComponent,
     AuthComponent,
     LoginComponent,
+    NavigationComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

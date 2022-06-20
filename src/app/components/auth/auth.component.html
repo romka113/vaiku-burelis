@@ -17,7 +17,7 @@
             <input type="password" class="form-control" [hidden]="isLoginMode" [(ngModel)]="repass" ngModel name="repassword" minlength="6" required>
           </div>
           <button type="submit" [disabled]="password!==repass&&!isLoginMode" class="btn btn-info">{{(isLoginMode)?"Prisijungti":"Registruotis"}}</button>
-          <button type="submit" class="btn btn-info float-end " (click)="isLoginMode=!isLoginMode">{{(!isLoginMode)?"Turite paskyra? Prisjunkite":"Neturite paskyros? Registruotis"}}</button>
+          <button  type="button"  class="btn btn-info float-end " (click)="isLoginMode=!isLoginMode">{{(!isLoginMode)?"Turite paskyra? Prisjunkite":"Neturite paskyros? Registruotis"}}</button>
           <span *ngIf="repass!==password&&!isLoginMode">Klaida ivedant slaptazodi</span>
         </form>
       </div>

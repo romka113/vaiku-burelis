@@ -13,7 +13,7 @@
           <th>El.pastas</th>
           <th>Telefono numeris</th>
           <th>Klase</th>
-          <th>Veiksmai</th>
+          <th *ngIf="user!=null">Veiksmai</th>
 
         </tr>
       </thead>
@@ -26,7 +26,7 @@
           <td>{{ data.email }}</td>
           <td>{{ data.phone }}</td>
           <td>{{ data.klass }}</td>
-          <td><a [routerLink]="['/registrationEdit',data.id]" class="btn btn-info">Redaguoti</a>
+          <td *ngIf="user!=null"><a [routerLink]="['/registrationEdit',data.id]" class="btn btn-info">Redaguoti</a>
             <button class="btn btn-danger" (click)="close(data.id)">Ištrinti</button></td>
 
         </tr>
