@@ -16,6 +16,7 @@ export class RegistrationEditComponent implements OnInit {
   public spalava: string = '';
   public error = false;
   public erroCode: string = '';
+  public color: string = '';
   constructor(
     private registrationService: RegistrationService,
     private route: ActivatedRoute,
@@ -42,12 +43,13 @@ export class RegistrationEditComponent implements OnInit {
   //     '#' + Math.floor(Math.random() * 16777215).toString(16);
   // }
   maleOrFemale() {
-    if (this.registration.gender === 'berniukas') {
-      return '#' + Math.floor(Math.random() * 16777215).toString(16);
-    } else {
-      return '#' + Math.floor(Math.random() * 16777215).toString(16);
-    }
+    return this.color;
   }
+  coloring() {
+    return (this.color =
+      '#' + Math.floor(Math.random() * 16777215).toString(16));
+  }
+
   onUpdate() {
     this.registrationService.updateRegistration(this.registration).subscribe({
       next: () => {

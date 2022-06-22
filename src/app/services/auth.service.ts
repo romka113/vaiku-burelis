@@ -12,7 +12,7 @@ export class AuthService {
   public user: User | null = null;
   public userUpdate = new EventEmitter();
   private successLoginFun = (response: User) => {
-    this.user = response;
+    this.user = User.generateUser(response);
     localStorage.setItem('user', JSON.stringify(this.user));
     this.userUpdate.emit();
   };
@@ -39,12 +39,26 @@ export class AuthService {
   public autoLogin() {
     let data = localStorage.getItem('user');
     if (data != null) {
-      this.user = JSON.parse(data);
+      let t: User = JSON.parse(data);
+      this.user = User.generateUser(t, t.loginTime);
+      if (this.user?.isExpired()) {
+        this.user = null;
+        localStorage.removeItem('user');
+      }
     }
   }
   public logOut() {
     this.user = null;
     localStorage.removeItem('user');
     this.userUpdate.emit();
+  }
+  public changePassword(password: string) {
+    return this.http
+      .post<User>(this.url + ':update?key=' + this.key, {
+        idToken: this.user?.idToken,
+        password: password,
+        returnSecureToken: true,
+      })
+      .pipe(tap(this.successLoginFun));
   }
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Registration } from '../models/registration';
 import { map } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ import { map } from 'rxjs';
 export class RegistrationService {
   private readonly url: string =
     'https://techapziura-674ce-default-rtdb.europe-west1.firebasedatabase.app/';
-  constructor(private hhtp: HttpClient) {}
+  constructor(private hhtp: HttpClient, private auth: AuthService) {}
   public addRegistration(registration: Registration) {
     return this.hhtp.post(this.url + 'registrations.json', registration);
   }
@@ -38,7 +39,11 @@ export class RegistrationService {
   }
   public updateRegistration(registration: Registration) {
     return this.hhtp.patch(
-      this.url + 'registrations/' + registration.id + '.json',
+      this.url +
+        'registrations/' +
+        registration.id +
+        '.json?auth=' +
+        this.auth.user?.idToken,
       registration
     );
   }
